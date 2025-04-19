@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Изучение программирования с CodeWave</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container container-header-container">
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="CodeWave Logo" class="logo-img">
+                <span class="logo-text">CodeMaster</span>
+            </a>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">Главная</a>
+                <a href="intro.html" class="nav-link">Введение</a>
+                <a href="languages.html" class="nav-link">Языки</a>
+                <a href="tutorials.html" class="nav-link">Уроки</a>
+                <a href="resources.html" class="nav-link">Ресурсы</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Изучайте программирование с CodeMaster</h1>
+            <p>Погрузитесь в мир кодирования с помощью наших руководств, курсов и ресурсов для начинающих.</p>
+            <div class="hero-buttons">
+                <a href="languages.html" class="btn btn-hero-primary">Изучить языки</a>
+                <a href="resources.html" class="btn btn-hero-secondary">Просмотреть ресурсы</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="languages" class="languages">
+        <div class="container">
+            <h2>Популярные языки программирования</h2>
+            <div class="languages-grid">
+                <div class="language-card">
+                    <div class="card-content">
+                        <h3>Python</h3>
+                        <p>Известен своей простотой и универсальностью. Отлично подходит для начинающих и для научных вычислений.</p>
+                        <a href="languages.html#python" class="card-button">Изучать Python</a>
+                    </div>
+                </div>
+                <div class="language-card">
+                    <div class="card-content">
+                        <h3>JavaScript</h3>
+                        <p>Язык веб-разработки. Создавайте интерактивные веб-сайты и веб-приложения.</p>
+                        <a href="languages.html#javascript" class="card-button">Изучать JavaScript</a>
+                    </div>
+                </div>
+                <div class="language-card">
+                    <div class="card-content">
+                        <h3>Java</h3>
+                        <p>Создавайте надежные, масштабируемые приложения для различных платформ.</p>
+                        <a href="languages.html#java" class="card-button">Изучать Java</a>
+                    </div>
+                </div>
+                <div class="language-card">
+                    <div class="card-content">
+                        <h3>Ruby</h3>
+                        <p>Элегантный синтаксис, ориентированный на простоту и продуктивность.</p>
+                        <a href="languages.html#ruby" class="card-button">Изучать Ruby</a>
+                    </div>
+                </div>
+                <div class="language-card">
+                    <div class="card-content">
+                        <h3>Go</h3>
+                        <p>Разработан для простоты, надежности и эффективности.</p>
+                        <a href="languages.html#go" class="card-button">Изучать Go</a>
+                    </div>
+                </div>
+                <div class="language-card">
+                    <div class="card-content">
+                        <h3>C#</h3>
+                        <p>Универсальный язык для приложений, веб-сервисов и игр.</p>
+                        <a href="languages.html#csharp" class="card-button">Изучать C#</a>
+                    </div>
+                </div>
+                <div class="language-card">
+                    <div class="card-content">
+                        <h3>Swift</h3>
+                        <p>Язык от Apple для iOS и macOS приложений.</p>
+                        <a href="languages.html#swift" class="card-button">Изучать Swift</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2>О нас</h2>
+            <p>Мы - сообщество энтузиастов, стремящихся сделать программирование доступным для всех. Наша цель - предоставить качественные материалы для обучения. На нашем сайте вы найдете тщательно отобранные курсы, статьи и советы, которые помогут вам уверенно двигаться вперед в мире программирования.</p>
+        </div>
+    </section>
+
+    <section id="contact" class="contact courses-section">
+        <div class="container">
+            <h2>Свяжитесь с нами</h2>
+            <p style="text-align: center; margin-bottom: 30px; color: #666;">У нас есть вопросы или отзывы? Мы будем рады услышать от вас.</p>
+            <div class="contact-form">
+                <form id="contact-form">
+                    <div class="form-group">
+                        <label for="name" class="form-label">Ваше имя</label>
+                        <input type="text" id="name" class="form-input" placeholder="Ваше имя">
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" id="email" class="form-input" placeholder="Ваш email@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="message" class="form-label">Сообщение</label>
+                        <textarea id="message" class="form-input" placeholder="Ваше сообщение"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Отправить сообщение</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-bottom">
+            <p>© 2025 <a href="https://nikitos23133.github.io">CodeWave</a>. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

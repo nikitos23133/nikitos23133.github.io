@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>Ошибка 404 - CodeMaster</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="[invalid url, do not cite]
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&display=swap" rel="stylesheet"></noscript>
+    <style>
+        :root {
+            --primary: #0f0;
+            --bg: #0a0a0a;
+            --matrix-opacity: 0.05;
+            --font-stack: 'Fira Code', Consolas, Monaco, 'Andale Mono', monospace;
+            --button-bg: #006400;
+            --button-hover: #008000;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: var(--font-stack);
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--primary);
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            overflow: hidden;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background-color: var(--bg);
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+            min-height: 500px;
+            z-index: 1;
+        }
+
+        .error-code {
+            font-size: clamp(6rem, 20vw, 8rem);
+            text-shadow: 0 0 1rem var(--primary);
+            animation: glitch 2s ease-in-out infinite;
+        }
+
+        .message {
+            font-size: 2rem;
+            margin-top: 1rem;
+            color: var(--primary);
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .ascii-art {
+            font-size: 0.8rem;
+            color: var(--primary);
+            margin: 20px 0;
+            white-space: pre;
+            text-align: center;
+        }
+
+        .terminal-output {
+            background-color: #000;
+            color: var(--primary);
+            padding: 10px;
+            border-radius: 5px;
+            font-family: var(--font-stack);
+            margin-top: 20px;
+            text-align: left;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-home {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: var(--button-bg);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-home::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.3),
+                transparent
+            );
+            transition: 0.5s;
+        }
+
+        .btn-home:hover::before {
+            left: 100%;
+        }
+
+        .btn-home:hover {
+            background-color: var(--button-hover);
+        }
+
+        .matrix-bg {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            opacity: var(--matrix-opacity);
+            z-index: -1;
+            background: repeating-linear-gradient(
+                180deg,
+                transparent 0 5px,
+                color-mix(in srgb, var(--primary) 5%, transparent) 5px 10px
+            );
+        }
+
+        @keyframes glitch {
+            0%, 100% { transform: translate(0); opacity: 1; }
+            10% { transform: translate(-2px, 3px); opacity: 0.8; }
+            20% { transform: translate(3px, -2px); opacity: 0.9; }
+            30% { transform: translate(-4px, 1px); }
+            40% { transform: translate(1px, -3px); }
+            50% { opacity: 0.85; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            .error-code {
+                font-size: clamp(4rem, 15vw, 6rem);
+            }
+            .message {
+                font-size: 1.5rem;
+            }
+            .ascii-art {
+                font-size: 0.6rem;
+            }
+            .terminal-output {
+                font-size: 0.9rem;
+            }
+            .btn-home {
+                padding: 8px 16px;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .message {
+                font-size: 1.2rem;
+            }
+            .ascii-art {
+                font-size: 0.5rem;
+            }
+            .terminal-output {
+                font-size: 0.8rem;
+            }
+            .btn-home {
+                padding: 6px 12px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <canvas class="matrix-bg" id="matrixCanvas"></canvas>
+    
+    <header>
+        <div class="container container-header-container">
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="CodeMaster Logo" class="logo-img">
+                <span class="logo-text">CodeWave</span>
+            </a>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">Главная</a>
+                <a href="intro.html" class="nav-link">Введение</a>
+                <a href="languages.html" class="nav-link">Языки</a>
+                <a href="tutorials.html" class="nav-link">Уроки</a>
+                <a href="resources.html" class="nav-link">Ресурсы</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="container">
+        <h1 class="error-code" aria-label="404 Error">404</h1>
+        <div class="message">Ошибка: Код не найден</div>
+        <div class="ascii-art">
+            <pre>
+  
+            </pre>
+        </div>
+        <div class="terminal-output">
+            <pre>
+$ curl https://codemaster.com/non-existent-page
+HTTP/1.1 404 Not Found
+            </pre>
+        </div>
+        <a href="index.html" class="btn-home" aria-label="Вернуться на главную страницу">Execute: returnHome()</a>
+    </section>
+
+    <footer>
+        <div class="container footer-bottom">
+            <p>© 2025 <a href="[invalid url, do not cite] Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script>
+        function initMatrix() {
+            const canvas = document.getElementById('matrixCanvas');
+            const ctx = canvas.getContext('2d');
+            
+            const root = document.documentElement;
+            const fontStack = getComputedStyle(root).getPropertyValue('--font-stack').trim();
+            const primaryColor = getComputedStyle(root).getPropertyValue('--primary').trim();
+            
+            function resize() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+            
+            resize();
+            window.addEventListener('resize', resize);
+
+            const chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+-=[]{}|;:,.<>?/~`';
+            const fontSize = 14;
+            const columns = Math.floor(canvas.width / fontSize);
+            const drops = Array(columns).fill(0);
+
+            function draw() {
+                ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                
+                ctx.fillStyle = primaryColor;
+                ctx.font = `${fontSize}px ${fontStack}`;
+
+                drops.forEach((drop, i) => {
+                    const char = chars[Math.floor(Math.random() * chars.length)];
+                    ctx.fillText(char, i * fontSize, drop * fontSize);
+                    
+                    if (drop * fontSize > canvas.height && Math.random() > 0.975) {
+                        drops[i] = 0;
+                    }
+                    drops[i]++;
+                });
+
+                requestAnimationFrame(draw);
+            }
+
+            draw();
+        }
+
+        document.addEventListener('DOMContentLoaded', initMatrix);
+    </script>
+</body>
+</html>
