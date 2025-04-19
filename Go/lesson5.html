@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Урок 5: Пакеты и модули - Go - CodeWave</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-align: center;
+            border-bottom: 2px solid #8a9635;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #8a9635;
+            font-size: 1.8em;
+            margin: 30px 0 15px;
+        }
+        h3 {
+            color: #555;
+            font-size: 1.5em;
+            margin: 20px 0 10px;
+        }
+        p {
+            line-height: 1.6;
+            font-size: 1.1em;
+            color: #555;
+            margin-bottom: 15px;
+        }
+        p a, li a {
+            color: #8a9635;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        p a:hover, li a:hover {
+            text-decoration: underline;
+        }
+        pre {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        code {
+            font-family: 'Courier New', Courier, monospace;
+            color: #333;
+        }
+        ul, ol {
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+        li {
+            line-height: 1.6;
+            font-size: 1.1em;
+            color: #555;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            h2 {
+                font-size: 1.5em;
+            }
+            h3 {
+                font-size: 1.3em;
+            }
+            p, li {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container container-header-container">
+            <a href="../index.html" class="logo">
+                <img src="../logo.png" alt="CodeWave Logo" class="logo-img">
+                <span class="logo-text">CodeWave</span>
+            </a>
+            <nav class="nav-menu">
+                <a href="../index.html" class="nav-link">Главная</a>
+                <a href="../intro.html" class="nav-link">Введение</a>
+                <a href="../languages.html" class="nav-link">Языки</a>
+                <a href="../tutorials.html" class="nav-link">Уроки</a>
+                <a href="../resources.html" class="nav-link">Ресурсы</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="container">
+        <h1>Урок 5: Пакеты и модули - Go</h1>
+
+        <h2>Введение</h2>
+        <p>Пакеты и модули в Go позволяют организовывать код для повторного использования и масштабируемости. Пакеты группируют связанные функции и типы, а модули управляют зависимостями. В этом уроке вы научитесь создавать пакеты, использовать структуры (`struct`) и работать с модулями.</p>
+
+        <h2>Создание пакета</h2>
+        <p>Пакет — это каталог с Go-файлами. Создайте структуру директорий:</p>
+        <pre>
+myapp/
+├── main.go
+└── person/
+    └── person.go
+        </pre>
+        <p>В <code>person/person.go</code> добавьте код:</p>
+        <pre>
+package person
+
+type Person struct {
+    Name string
+    Age  int
+}
+
+func (p Person) Greet() string {
+    return fmt.Sprintf("Привет, я %s!", p.Name)
+}
+        </pre>
+        <p>В <code>main.go</code> используйте пакет:</p>
+        <pre>
+package main
+
+import (
+    "fmt"
+    "myapp/person"
+)
+
+func main() {
+    p := person.Person{Name: "Алексей", Age: 25}
+    fmt.Println(p.Name) // Вывод: Алексей
+    fmt.Println(p.Greet()) // Вывод: Привет, я Алексей!
+}
+        </pre>
+        <p>Разберём код:</p>
+        <ul>
+            <li><code>package person</code>: Объявление пакета.</li>
+            <li><code>type Person struct</code>: Структура с полями.</li>
+            <li><code>Greet</code>: Метод структуры.</li>
+            <li><code>import "myapp/person"</code>: Импорт пакета.</li>
+        </ul>
+
+        <h2>Работа с модулями</h2>
+        <p>Модули управляют зависимостями. Инициализируйте модуль:</p>
+        <ol>
+            <li>В корне проекта выполните:
+                <pre>
+go mod init myapp
+                </pre>
+            </li>
+            <li>Запустите программу:
+                <pre>
+go run .
+                </pre>
+            </li>
+        </ol>
+        <p>Для использования внешних пакетов добавьте их с помощью <code>go get</code>.</p>
+
+        <h2>Запуск кода</h2>
+        <p>Для выполнения:</p>
+        <ol>
+            <li>Создайте структуру директорий и файлы.</li>
+            <li>Инициализируйте модуль (<code>go mod init myapp</code>).</li>
+            <li>Запустите:
+                <pre>
+go run .
+                </pre>
+            </li>
+        </ol>
+
+        <h2>Практика</h2>
+        <p>Выполните задания:</p>
+        <ol>
+            <li>Создайте пакет <code>book</code> с структурой <code>Book</code> (поля <code>Title</code>, <code>Year</code>) и методом <code>Description</code>.</li>
+            <li>Используйте пакет <code>book</code> в <code>main.go</code> для вывода описания книги.</li>
+            <li>Создайте пакет <code>car</code> с структурой <code>Car</code> и методом <code>Accelerate</code>.</li>
+            <li>Инициализируйте модуль и запустите программу с использованием пакета <code>car</code>.</li>
+            <li>Создайте пакет <code>point</code> с структурой <code>Point</code> (координаты) и методом <code>Distance</code>.</li>
+            <li>Создайте пакет <code>team</code> с структурой <code>Team</code> и методом для подсчёта участников.</li>
+            <li>Напишите программу, использующую два пакета для моделирования студентов и их оценок.</li>
+        </ol>
+        <p>Подробности о пакетах читайте в <a href="https://go.dev/doc/">документации Go</a>.</p>
+    </section>
+
+    <footer>
+        <div class="container footer-bottom">
+            <p>© 2025 <a href="https://nikitos23133.github.io">CodeWave</a>. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>

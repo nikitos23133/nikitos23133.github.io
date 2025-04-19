@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Урок 3: Условия, циклы и методы - Ruby - CodeWave</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-align: center;
+            border-bottom: 2px solid #8a9635;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #8a9635;
+            font-size: 1.8em;
+            margin: 30px 0 15px;
+        }
+        h3 {
+            color: #555;
+            font-size: 1.5em;
+            margin: 20px 0 10px;
+        }
+        p {
+            line-height: 1.6;
+            font-size: 1.1em;
+            color: #555;
+            margin-bottom: 15px;
+        }
+        p a, li a {
+            color: #8a9635;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        p a:hover, li a:hover {
+            text-decoration: underline;
+        }
+        pre {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        code {
+            font-family: 'Courier New', Courier, monospace;
+            color: #333;
+        }
+        ul, ol {
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+        li {
+            line-height: 1.6;
+            font-size: 1.1em;
+            color: #555;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            h2 {
+                font-size: 1.5em;
+            }
+            h3 {
+                font-size: 1.3em;
+            }
+            p, li {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container container-header-container">
+            <a href="../index.html" class="logo">
+                <img src="../logo.png" alt="CodeWave Logo" class="logo-img">
+                <span class="logo-text">CodeWave</span>
+            </a>
+            <nav class="nav-menu">
+                <a href="../index.html" class="nav-link">Главная</a>
+                <a href="../intro.html" class="nav-link">Введение</a>
+                <a href="../languages.html" class="nav-link">Языки</a>
+                <a href="../tutorials.html" class="nav-link">Уроки</a>
+                <a href="../resources.html" class="nav-link">Ресурсы</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="container">
+        <h1>Урок 3: Условия, циклы и методы - Ruby</h1>
+
+        <h2>Введение</h2>
+        <p>Условия, циклы и методы — это основы структурного программирования в Ruby. Условия позволяют выполнять код в зависимости от ситуации, циклы — повторять действия, а методы — организовывать код в переиспользуемые блоки. В этом уроке вы изучите эти концепции.</p>
+
+        <h2>Условные операторы</h2>
+        <p>Ruby поддерживает условные конструкции <code>if</code>, <code>else</code>, <code>elsif</code> и тернарный оператор.</p>
+        <pre>
+age = 20
+if age >= 18
+  puts "Вы взрослый"
+elsif age >= 13
+  puts "Вы подросток"
+else
+  puts "Вы ребёнок"
+end
+        </pre>
+        <p>Тернарный оператор:</p>
+        <pre>
+status = age >= 18 ? "Взрослый" : "Ребёнок"
+puts status
+        </pre>
+
+        <h2>Циклы</h2>
+        <p>Ruby предоставляет несколько способов организации циклов:</p>
+        <h3>Цикл while</h3>
+        <pre>
+count = 1
+while count <= 5
+  puts "Итерация #{count}"
+  count += 1
+end
+        </pre>
+        <h3>Цикл for</h3>
+        <pre>
+for i in 1..5
+  puts "Число #{i}"
+end
+        </pre>
+        <h3>Метод each для массивов</h3>
+        <pre>
+numbers = [1, 2, 3, 4, 5]
+numbers.each do |num|
+  puts "Число #{num}"
+end
+        </pre>
+
+        <h2>Методы</h2>
+        <p>Методы в Ruby определяются с помощью ключевого слова <code>def</code>. Они могут принимать параметры и возвращать значения.</p>
+        <pre>
+def greet(name)
+  "Привет, #{name}!"
+end
+
+puts greet("Алиса") # Привет, Алиса!
+        </pre>
+        <p>Методы с параметрами по умолчанию:</p>
+        <pre>
+def introduce(name, age = 18)
+  puts "Меня зовут #{name}, мне #{age} лет."
+end
+
+introduce("Боб")      # Меня зовут Боб, мне 18 лет.
+introduce("Алиса", 25) # Меня зовут Алиса, мне 25 лет.
+        </pre>
+
+        <h2>Практика</h2>
+        <p>1. Напишите программу, которая проверяет, является ли число чётным, и выводит результат.</p>
+        <p>2. Создайте цикл, который выводит числа от 1 до 10.</p>
+        <p>3. Напишите метод, который принимает два числа и возвращает их сумму.</p>
+        <p>4. Создайте массив строк и используйте <code>each</code> для их вывода.</p>
+        <p>5. Напишите программу, которая определяет категорию возраста (ребёнок, подросток, взрослый) с помощью <code>if-elsif</code>.</p>
+    </section>
+
+    <footer>
+        <div class="container footer-bottom">
+            <p>© 2023 <a href="https://nikitos23133.github.io">CodeWave</a>. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>

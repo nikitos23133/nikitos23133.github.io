@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Урок 4: Работа с массивами и словарями - Swift - CodeWave</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-align: center;
+            border-bottom: 2px solid #8a9635;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #8a9635;
+            font-size: 1.8em;
+            margin: 30px 0 15px;
+        }
+        h3 {
+            color: #555;
+            font-size: 1.5em;
+            margin: 20px 0 10px;
+        }
+        p {
+            line-height: 1.6;
+            font-size: 1.1em;
+            color: #555;
+            margin-bottom: 15px;
+        }
+        p a, li a {
+            color: #8a9635;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        p a:hover, li a:hover {
+            text-decoration: underline;
+        }
+        pre {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        code {
+            font-family: 'Courier New', Courier, monospace;
+            color: #333;
+        }
+        ul, ol {
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+        li {
+            line-height: 1.6;
+            font-size: 1.1em;
+            color: #555;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            h2 {
+                font-size: 1.5em;
+            }
+            h3 {
+                font-size: 1.3em;
+            }
+            p, li {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container container-header-container">
+            <a href="../index.html" class="logo">
+                <img src="../logo.png" alt="CodeWave Logo" class="logo-img">
+                <span class="logo-text">CodeWave</span>
+            </a>
+            <nav class="nav-menu">
+                <a href="../index.html" class="nav-link">Главная</a>
+                <a href="../intro.html" class="nav-link">Введение</a>
+                <a href="../languages.html" class="nav-link">Языки</a>
+                <a href="../tutorials.html" class="nav-link">Уроки</a>
+                <a href="../resources.html" class="nav-link">Ресурсы</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="container">
+        <h1>Урок 4: Работа с массивами и словарями - Swift</h1>
+
+        <h2>Введение</h2>
+        <p>Массивы и словари — ключевые структуры данных в Swift, позволяющие хранить и обрабатывать наборы значений. Массивы хранят упорядоченные списки элементов, а словари — пары "ключ-значение". В этом уроке вы научитесь создавать, изменять и использовать массивы и словари в Swift. Эти навыки пригодятся для разработки iOS/macOS приложений.</p>
+
+        <h2>Работа с массивами</h2>
+        <p>Массив (`Array`) в Swift — это упорядоченная коллекция элементов одного типа. Создайте файл <code>arrays.swift</code> и попробуйте следующий код:</p>
+        <pre>
+var fruits: [String] = ["Яблоко", "Банан", "Апельсин"]
+print(fruits) // Вывод: ["Яблоко", "Банан", "Апельсин"]
+
+// Добавление элемента
+fruits.append("Груша")
+print(fruits) // Вывод: ["Яблоко", "Банан", "Апельсин", "Груша"]
+
+// Доступ к элементу
+print(fruits[1]) // Вывод: Банан
+
+// Изменение элемента
+fruits[2] = "Мандарин"
+print(fruits) // Вывод: ["Яблоко", "Банан", "Мандарин", "Груша"]
+
+// Итерация по массиву
+for fruit in fruits {
+    print("Фрукт: \(fruit)")
+}
+        </pre>
+        <p>Разберём код:</p>
+        <ul>
+            <li><code>var fruits: [String]</code>: Объявление массива строк.</li>
+            <li><code>append</code>: Добавляет элемент в конец массива.</li>
+            <li><code>fruits[1]</code>: Доступ к элементу по индексу (начинается с 0).</li>
+            <li><code>for ... in</code>: Цикл для перебора элементов.</li>
+        </ul>
+
+        <h2>Работа со словарями</h2>
+        <p>Словарь (`Dictionary`) хранит пары "ключ-значение", где ключи уникальны. Попробуйте следующий код в <code>dictionaries.swift</code>:</p>
+        <pre>
+var scores: [String: Int] = ["Алексей": 85, "Мария": 92, "Иван": 78]
+print(scores) // Вывод: ["Иван": 78, "Алексей": 85, "Мария": 92]
+
+// Добавление/обновление элемента
+scores["Ольга"] = 95
+print(scores) // Вывод: ["Иван": 78, "Алексей": 85, "Мария": 92, "Ольга": 95]
+
+// Доступ к значению
+if let score = scores["Мария"] {
+    print("Оценка Марии: \(score)") // Вывод: Оценка Марии: 92
+}
+
+// Итерация по словарю
+for (name, score) in scores {
+    print("\(name): \(score)")
+}
+        </pre>
+        <p>Разберём код:</p>
+        <ul>
+            <li><code>var scores: [String: Int]</code>: Словарь с ключами-строками и значениями-целыми числами.</li>
+            <li><code>scores["Ольга"] = 95</code>: Добавление или обновление пары.</li>
+            <li><code>if let</code>: Безопасный доступ к значению по ключу.</li>
+            <li><code>for (name, score) in</code>: Перебор пар ключ-значение.</li>
+        </ul>
+
+        <h2>Запуск кода</h2>
+        <p>Для тестирования кода используйте Xcode Playground или создайте Swift-файл:</p>
+        <ol>
+            <li>Откройте Xcode и создайте новый Playground или проект.</li>
+            <li>Скопируйте код из примеров.</li>
+            <li>Запустите (Cmd+R) и проверьте вывод в консоли.</li>
+            <li>Для файлов (<code>arrays.swift</code>, <code>dictionaries.swift</code>) используйте терминал:
+                <pre>
+swift arrays.swift
+                </pre>
+            </li>
+        </ol>
+
+        <h2>Практика</h2>
+        <p>Выполните следующие задания для закрепления:</p>
+        <ol>
+            <li>Создайте массив с названиями 5 ваших любимых книг и выведите их.</li>
+            <li>Добавьте новую книгу в массив и замените вторую книгу на другую.</li>
+            <li>Создайте словарь с названиями 3 предметов и их оценками (например, "Математика": 90).</li>
+            <li>Обновите оценку одного предмета и добавьте новый предмет.</li>
+            <li>Напишите программу, которая выводит все предметы и оценки из словаря в формате "Предмет: Оценка".</li>
+            <li>Создайте массив чисел и выведите только чётные числа.</li>
+            <li>Создайте словарь с днями недели и количеством задач (например, "Понедельник": 5), затем выведите день с наибольшим количеством задач.</li>
+        </ol>
+        <p>Подробности о массивах и словарях читайте в <a href="https://swift.org/documentation/">документации Swift</a>.</p>
+    </section>
+
+    <footer>
+        <div class="container footer-bottom">
+            <p>© 2025 <a href="https://nikitos23133.github.io">CodeWave</a>. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>

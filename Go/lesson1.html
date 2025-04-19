@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Урок 1: Введение и первая программа - Go - CodeWave</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-align: center;
+            border-bottom: 2px solid #8a9635;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #8a9635;
+            font-size: 1.8em;
+            margin: 30px 0 15px;
+        }
+        h3 {
+            color: #555;
+            font-size: 1.5em;
+            margin: 20px 0 10px;
+        }
+        p {
+            line-height: 1.6;
+            font-size: 1.1em;
+            color: #555;
+            margin-bottom: 15px;
+        }
+        p a, li a {
+            color: #8a9635;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        p a:hover, li a:hover {
+            text-decoration: underline;
+        }
+        pre {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        code {
+            font-family: 'Courier New', Courier, monospace;
+            color: #333;
+        }
+        ul, ol {
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+        li {
+            line-height: 1.6;
+            font-size: 1.1em;
+            color: #555;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            h2 {
+                font-size: 1.5em;
+            }
+            h3 {
+                font-size: 1.3em;
+            }
+            p, li {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container container-header-container">
+            <a href="../index.html" class="logo">
+                <img src="../logo.png" alt="CodeWave Logo" class="logo-img">
+                <span class="logo-text">CodeWave</span>
+            </a>
+            <nav class="nav-menu">
+                <a href="../index.html" class="nav-link">Главная</a>
+                <a href="../intro.html" class="nav-link">Введение</a>
+                <a href="../languages.html" class="nav-link">Языки</a>
+                <a href="../tutorials.html" class="nav-link">Уроки</a>
+                <a href="../resources.html" class="nav-link">Ресурсы</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="container">
+        <h1>Урок 1: Введение и первая программа - Go</h1>
+
+        <h2>Введение</h2>
+        <p>Go (или Golang) — это современный язык программирования, разработанный для простоты, надёжности и высокой производительности. Он популярен для серверных приложений, облачных систем и микросервисов. В этом уроке вы установите Go, настроите среду разработки и напишете свою первую программу.</p>
+
+        <h2>Установка Go</h2>
+        <p>Для работы с Go необходимо установить компилятор. Следуйте этим шагам:</p>
+        <ol>
+            <li>Перейдите на <a href="https://go.dev/dl/">официальный сайт Go</a>.</li>
+            <li>Скачайте установщик для вашей операционной системы (например, Go 1.21 или новее).</li>
+            <li>Установите Go, следуя инструкциям. На Windows и macOS установка автоматическая, на Linux распакуйте архив в <code>/usr/local</code>.</li>
+            <li>Настройте переменную <code>GOPATH</code> (по умолчанию — <code>~/go</code>):
+                <ul>
+                    <li>Windows: Добавьте <code>%USERPROFILE%\go\bin</code> в <code>Path</code>.</li>
+                    <li>Mac/Linux: Добавьте в <code>~/.bashrc</code> или <code>~/.zshrc</code>:
+                        <pre>
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin
+                        </pre>
+                </ul>
+            </li>
+            <li>Проверьте установку, выполнив:
+                <pre>
+go version
+                </pre>
+                Вывод: <code>go version go1.21.x</code>.
+            </li>
+        </ol>
+        <p>Рекомендуется использовать VS Code с расширением Go для удобной разработки.</p>
+
+        <h2>Первая программа</h2>
+        <p>Создайте файл <code>hello.go</code> с следующим кодом:</p>
+        <pre>
+package main
+
+import "fmt"
+
+func main() {
+    fmt.Println("Hello, World!")
+}
+        </pre>
+        <p>Разберём код:</p>
+        <ul>
+            <li><code>package main</code>: Определяет основной пакет, точка входа программы.</li>
+            <li><code>import "fmt"</code>: Подключает пакет для форматирования и вывода.</li>
+            <li><code>func main()</code>: Главная функция, с которой начинается выполнение.</li>
+            <li><code>fmt.Println</code>: Выводит текст в консоль.</li>
+        </ul>
+
+        <h2>Компиляция и запуск</h2>
+        <p>Чтобы скомпилировать и запустить программу:</p>
+        <ol>
+            <li>Сохраните файл <code>hello.go</code>.</li>
+            <li>Откройте терминал в папке с файлом.</li>
+            <li>Выполните:
+                <pre>
+go run hello.go
+                </pre>
+                Вывод: <code>Hello, World!</code>
+            </li>
+            <li>Для компиляции в исполняемый файл:
+                <pre>
+go build hello.go
+                </pre>
+                Затем запустите: <code>./hello</code> (Linux/macOS) или <code>hello.exe</code> (Windows).
+            </li>
+        </ol>
+
+        <h2>Практика</h2>
+        <p>1. Установите Go и проверьте его версию в терминале.</p>
+        <p>2. Установите VS Code и расширение Go.</p>
+        <p>3. Напишите программу, которая выводит ваше имя в консоль.</p>
+        <p>4. Создайте программу, которая выводит "Welcome to Go!" и скомпилируйте её в исполняемый файл.</p>
+    </section>
+
+    <footer>
+        <div class="container footer-bottom">
+            <p>© 2025 <a href="https://nikitos23133.github.io">CodeWave</a>. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>
